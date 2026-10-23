@@ -1,0 +1,1 @@
+"""Vendor role API application."""
