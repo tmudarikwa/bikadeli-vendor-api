@@ -9,6 +9,7 @@ from bikadeli_common.gateway import (
     proxy_to_orders_service,
     proxy_to_pricing_service,
     readiness,
+    service_metadata_view,
 )
 
 
@@ -19,6 +20,7 @@ def proxy_vendor_orders(request, *args, **kwargs):
 
 
 urlpatterns = [
+    path("internal/service-metadata/", service_metadata_view, name="vendor-service-metadata"),
     path("health/", liveness, name="health-liveness"),
     path("health/ready/", readiness, name="health-readiness"),
     re_path(
